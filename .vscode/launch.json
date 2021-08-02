@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        // https://github.com/microsoft/vscode-chrome-debug
+        // Chrome debugger is actually not used, because I don't know how to use it!
+        {
+            "name": "Attach to url with files served from ./out",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "url": "https://www.youtube.com/watch?v=ghqXZPBlr2U",
+            "webRoot": "${workspaceFolder}/out"
+        }
+    ]
+}
