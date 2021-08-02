@@ -10,7 +10,8 @@ With copy_magic.js, it makes things simple. You just need a click to get the abo
 Here are steps to install the bookmark:
 - Create a bookmark in your browser;
 - Copy the code [copy_magic.js](copy_magic.js);
-- Paste copied code prefixed with `javascript: ` in the **URL** field of the bookmark.
+- Paste copied code prefixed with `javascript: ` in the **URL** field of the bookmark;
+- Update bookmark name to whatever you like, e.g., **Copy Magic**.
 
 ### Example
 If you want to copy the following YouTube video's title and link:
