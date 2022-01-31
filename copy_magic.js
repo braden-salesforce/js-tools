@@ -3,7 +3,8 @@ try {
       ['Google Drive', 'docs.google.com'],
       ['Quip', 'quip.com'],
       ['Wiki', 'confluence.internal.salesforce.com'],
-      ['GUS', 'gus.lightning.force.com'],
+      ['GUS Headcount', 'gus.lightning.force.com/lightning/r/Headcount'],
+      ['GUS ADM Work', 'gus.lightning.force.com/lightning/r/ADM_Work'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
       ['Concierge', 'concierge.it.salesforce.com'],
@@ -33,7 +34,7 @@ try {
       var title = document.getElementById('title-text').firstElementChild;
   
       text = title.innerText + '\n' + url;
-    } else if (location.origin.includes(m.get('GUS'))) {
+    } else if (location.href.includes(m.get('GUS Headcount'))) {
       var url = location.href;
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
       var a = wrapper.innerText.split('\n');
@@ -63,6 +64,13 @@ try {
       }
   
       text = position + ' - ' + role + ' - ' + hiringManager + ' - ' + recruiter + '\n' + url;
+    } else if (location.href.includes(m.get('GUS ADM Work'))) {
+        var url = location.href;
+        var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+        var work = wrapper.querySelector('[slot="primaryField"]').innerText;
+        var workID = wrapper.querySelector('[title="Work ID"]').nextElementSibling.innerText;
+        var recordType = wrapper.querySelector('[title="Record Type"]').nextElementSibling.innerText;
+        text = workID + ' - ' + recordType + ' - ' + work + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
