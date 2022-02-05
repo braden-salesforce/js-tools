@@ -13,7 +13,8 @@ try {
       ['YouTube', 'youtube.com'],
       ['Google Calendar', 'calendar.google.com'],
       ['Gmail', 'mail.google.com'],
-      ['OrgChart', 'orgchart.it.salesforce.com']
+      ['OrgChart', 'orgchart.it.salesforce.com'],
+      ['Lucidchart', 'lucid.app/lucidchart']
     ]);
     var supportedWebsites = Array.from(m.keys()).join(', ');
     var text = 'We only support: ' + supportedWebsites;
@@ -125,6 +126,11 @@ try {
       var folk = document.getElementById('details');
   
       text = folk.innerText;
+    } else if (location.href.includes(m.get('Lucidchart'))) {
+      var url = location.origin + location.pathname;
+      var title = getElementById('document_title');
+  
+      text = title.innerText + '\n' + url;
     }
   
     var textArea = document.createElement('textArea');
