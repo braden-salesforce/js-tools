@@ -128,7 +128,7 @@ try {
       text = folk.innerText;
     } else if (location.href.includes(m.get('Lucidchart'))) {
       var url = location.origin + location.pathname;
-      var title = getElementById('document_title');
+      var title = document.getElementById('document_title');
   
       text = title.innerText + '\n' + url;
     }
