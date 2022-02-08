@@ -5,6 +5,7 @@ try {
       ['Wiki', 'confluence.internal.salesforce.com'],
       ['GUS Headcount', 'gus.lightning.force.com/lightning/r/Headcount'],
       ['GUS ADM Work', 'gus.lightning.force.com/lightning/r/ADM_Work'],
+      ['GUS ADM Epic', 'gus.lightning.force.com/lightning/r/ADM_Epic'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
       ['Concierge', 'concierge.it.salesforce.com'],
@@ -72,6 +73,11 @@ try {
         var workID = wrapper.querySelector('[title="Work ID"]').nextElementSibling.innerText;
         var recordType = wrapper.querySelector('[title="Record Type"]').nextElementSibling.innerText;
         text = workID + ' - ' + recordType + ' - ' + work + '\n' + url;
+    } else if (location.href.includes(m.get('GUS ADM Epic'))) {
+        var url = location.href;
+        var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+        var epic = wrapper.querySelector('[slot="primaryField"]').innerText;
+        text = 'Epic - ' + epic + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
