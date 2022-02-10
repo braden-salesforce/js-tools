@@ -1,6 +1,7 @@
 try {
     var m = new Map([
-      ['Google Drive', 'docs.google.com'],
+      ['Google Docs', 'docs.google.com'],
+      ['Google Drive', 'drive.google.com'],
       ['Quip', 'quip.com'],
       ['Wiki', 'confluence.internal.salesforce.com'],
       ['GUS Headcount', 'gus.lightning.force.com/lightning/r/Headcount'],
@@ -21,12 +22,18 @@ try {
     var supportedWebsites = Array.from(m.keys()).join(', ');
     var text = 'We only support: ' + supportedWebsites;
   
-    if (location.origin.includes(m.get('Google Drive'))) {
+    if (location.origin.includes(m.get('Google Docs'))) {
       var url = location.origin + location.pathname;
       url = url.substr(0, url.lastIndexOf('/edit'));
       var title = document.getElementsByClassName('docs-title-input')[0];
   
       text = title.value + '\n' + url;
+    } else if (location.origin.includes(m.get('Google Drive'))) {
+      var url = location.href;
+      var folders = document.getElementsByClassName('o-Yc-Wb')[0].innerText;
+      var folderPath = folders.replaceAll('\n', ' > ');
+
+      text = folderPath + '\n' + url;
     } else if (location.origin.includes(m.get('Quip'))) {
       var url = location.origin + location.pathname;
       var title = document.getElementsByClassName('nav-path-title-text')[0];
