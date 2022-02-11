@@ -8,6 +8,7 @@ try {
       ['GUS ADM Work', 'gus.lightning.force.com/lightning/r/ADM_Work'],
       ['GUS ADM Epic', 'gus.lightning.force.com/lightning/r/ADM_Epic'],
       ['GUS ADM Sprint', 'gus.lightning.force.com/lightning/r/ADM_Sprint'],
+      ['GUS ADM Scrum Team', 'gus.lightning.force.com/lightning/r/ADM_Scrum_Team'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
       ['Concierge', 'concierge.it.salesforce.com'],
@@ -75,21 +76,26 @@ try {
   
       text = position + ' - ' + role + ' - ' + hiringManager + ' - ' + recruiter + '\n' + url;
     } else if (location.href.includes(m.get('GUS ADM Work'))) {
-        var url = location.href;
-        var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
-        var work = wrapper.querySelector('[slot="primaryField"]').innerText;
-        var workID = wrapper.querySelector('[title="Work ID"]').nextElementSibling.innerText;
-        var recordType = wrapper.querySelector('[title="Record Type"]').nextElementSibling.innerText;
-        text = workID + ' - ' + recordType + ' - ' + work + '\n' + url;
+      var url = location.href;
+      var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+      var work = wrapper.querySelector('[slot="primaryField"]').innerText;
+      var workID = wrapper.querySelector('[title="Work ID"]').nextElementSibling.innerText;
+      var recordType = wrapper.querySelector('[title="Record Type"]').nextElementSibling.innerText;
+      text = workID + ' - ' + recordType + ' - ' + work + '\n' + url;
     } else if (location.href.includes(m.get('GUS ADM Epic'))) {
-        var url = location.href;
-        var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
-        var epic = wrapper.querySelector('[slot="primaryField"]').innerText;
-        text = 'Epic - ' + epic + '\n' + url;
+      var url = location.href;
+      var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+      var epic = wrapper.querySelector('[slot="primaryField"]').innerText;
+      text = 'Epic - ' + epic + '\n' + url;
     } else if (location.href.includes(m.get('GUS ADM Sprint'))) {
-        var url = location.href;
-        var sprint = document.getElementsByClassName('slds-text-heading--small slds-media--rec-home__title slds-truncate')[0].innerText;
-        text = 'Sprint - ' + sprint + '\n' + url;
+      var url = location.href;
+      var sprint = document.getElementsByClassName('slds-text-heading--small slds-media--rec-home__title slds-truncate')[0].innerText;
+      text = 'Sprint - ' + sprint + '\n' + url;
+    } else if (location.href.includes(m.get('GUS ADM Scrum Team'))) {
+      var url = location.href;
+      var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+      var team = wrapper.querySelector('[slot="primaryField"]').innerText;
+      text = 'Team - ' + team + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
