@@ -9,6 +9,7 @@ try {
       ['GUS ADM Epic', 'gus.lightning.force.com/lightning/r/ADM_Epic'],
       ['GUS ADM Sprint', 'gus.lightning.force.com/lightning/r/ADM_Sprint'],
       ['GUS ADM Scrum Team', 'gus.lightning.force.com/lightning/r/ADM_Scrum_Team'],
+      ['GUS RB Retrospective', 'gus.lightning.force.com/lightning/r/RB_Retrospective'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
       ['Concierge', 'concierge.it.salesforce.com'],
@@ -96,6 +97,11 @@ try {
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
       var team = wrapper.querySelector('[slot="primaryField"]').innerText;
       text = 'Team - ' + team + '\n' + url;
+    } else if (location.href.includes(m.get('GUS RB Retrospective'))) {
+      var url = location.href;
+      var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+      var retrospective = wrapper.querySelector('[class="slds-page-header__title slds-truncate"]').innerText;
+      text = retrospective + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
