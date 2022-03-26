@@ -9,6 +9,7 @@ try {
       ['GUS ADM Epic', 'gus.lightning.force.com/lightning/r/ADM_Epic'],
       ['GUS ADM Sprint', 'gus.lightning.force.com/lightning/r/ADM_Sprint'],
       ['GUS ADM Scrum Team', 'gus.lightning.force.com/lightning/r/ADM_Scrum_Team'],
+      ['GUS ADM Theme', 'gus.lightning.force.com/lightning/r/ADM_Theme__c'],
       ['GUS RB Retrospective', 'gus.lightning.force.com/lightning/r/RB_Retrospective'],
       ['GUS Report', 'gus.lightning.force.com/lightning/r/Report'],
       ['GUS Dashboard', 'gus.lightning.force.com/lightning/r/Dashboard'],
@@ -100,6 +101,11 @@ try {
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
       var team = wrapper.querySelector('[slot="primaryField"]').innerText;
       text = 'Team - ' + team + '\n' + url;
+    } else if (location.href.includes(m.get('GUS ADM Theme'))) {
+      var url = location.href;
+      var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
+      var theme = wrapper.querySelector('[slot="primaryField"]').innerText;
+      text = 'Theme - ' + theme + '\n' + url;
     } else if (location.href.includes(m.get('GUS RB Retrospective'))) {
       var url = location.href;
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
