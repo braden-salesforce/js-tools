@@ -110,6 +110,11 @@ try {
       var iframe = document.getElementsByClassName('isView reportsReportBuilder')[0];
       var report = iframe.contentWindow.document.getElementsByClassName('slds-page-header__title slds-truncate')[0].innerText;
       text = report + '\n' + url;
+    } else if (location.href.includes(m.get('GUS Dashboard'))) {
+      var url = location.href;
+      var iframe = document.getElementsByTagName('iframe')[0];
+      var dashboard = iframe.contentWindow.document.getElementsByClassName('slds-page-header__title slds-truncate')[0].innerText;
+      text = dashboard + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
