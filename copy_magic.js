@@ -12,7 +12,8 @@ try {
       ['GUS RB Retrospective', 'gus.lightning.force.com/lightning/r/RB_Retrospective'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
-      ['Concierge', 'concierge.it.salesforce.com'],
+      ['Concierge Ticket', 'concierge.it.salesforce.com/tickets'],
+      ['Concierge Article', 'concierge.it.salesforce.com/articles'],
       ['Slack', 'app.slack.com'],
       ['LinkedIn', 'linkedin.com/in/'],
       ['YouTube', 'youtube.com'],
@@ -113,12 +114,17 @@ try {
       var summary = document.getElementById('summary-val');
       
       text = ticket + ' - ' + summary.innerText + '\n' + url;
-    } else if (location.origin.includes(m.get('Concierge'))) {
+    } else if (location.href.includes(m.get('Concierge Ticket'))) {
       var url = location.href;
-      var ticket = document.getElementById('ticket-number');
-      var topic = document.getElementById('ticket-subject');
+      var ticket = document.getElementById('ticket-number').innerText;
+      var topic = document.getElementById('ticket-subject').innerText;
       
-      text = ticket.innerText + ' - ' + topic.innerText + '\n' + url;
+      text = ticket + ' - ' + topic + '\n' + url;
+    } else if (location.href.includes(m.get('Concierge Article'))) {
+      var url = location.href;
+      var subject = document.getElementById('content-title').innerText;
+      
+      text = subject + '\n' + url;
     } else if (location.origin.includes(m.get('Slack'))) {
       var url = location.href;
       var channel = document.getElementsByClassName('p-view_header__channel_title p-view_header__truncated_text')[0];
