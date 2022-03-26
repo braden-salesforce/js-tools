@@ -11,6 +11,7 @@ try {
       ['GUS ADM Scrum Team', 'gus.lightning.force.com/lightning/r/ADM_Scrum_Team'],
       ['GUS RB Retrospective', 'gus.lightning.force.com/lightning/r/RB_Retrospective'],
       ['GUS Report', 'gus.lightning.force.com/lightning/r/Report'],
+      ['GUS Dashboard', 'gus.lightning.force.com/lightning/r/Dashboard'],
       ['JIRA Dashboard', '/jira/secure/Dashboard'],
       ['JIRA', '/jira/'],
       ['Concierge Ticket', 'concierge.it.salesforce.com/tickets'],
@@ -106,7 +107,7 @@ try {
       text = retrospective + '\n' + url;
     } else if (location.href.includes(m.get('GUS Report'))) {
       var url = location.href;
-      var iframe = document.getElementsByName('builder-1648263092145-411204')[0];
+      var iframe = document.getElementsByClassName('isView reportsReportBuilder')[0];
       var report = iframe.contentWindow.document.getElementsByClassName('slds-page-header__title slds-truncate')[0].innerText;
       text = report + '\n' + url;
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
