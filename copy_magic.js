@@ -59,8 +59,13 @@ try {
       var hiringManager = '';
       var role = '';
       var recruiter = '';
+      var team = '';
   
       for (var i = 0; i < a.length; ++i) {
+        if (a[i] === 'Last Modified By') {
+          break;
+        }
+
         switch(a[i]) {
           case 'Position #':
             position = a[i+1];
@@ -76,11 +81,14 @@ try {
           case 'Recruiter':
             recruiter = a[i+1];
             break;
+          case 'Help Team':
+            team = a[i+1];
+            break;
           default:
         }
       }
   
-      text = position + ' - ' + role + ' - ' + hiringManager + ' - ' + recruiter + '\n' + url;
+      text = position + ' - ' + role + ' - ' + hiringManager + ' - ' + team + ' - ' + recruiter + '\n' + url;
     } else if (location.href.includes(m.get('GUS ADM Work'))) {
       var url = location.href;
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
