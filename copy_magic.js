@@ -138,67 +138,57 @@ try {
     } else if (location.href.includes(m.get('JIRA Dashboard'))) {
       var url = location.href;
       var dashboard = document.getElementsByClassName('aui-page-header-main')[0];
-  
       text = dashboard.innerText + '\n' + url;
     } else if (location.pathname.includes(m.get('JIRA'))) {
       var url = location.origin + location.pathname;
       var ticket = url.split('/').pop();
-      var summary = document.getElementById('summary-val');
-      
+      var summary = document.getElementById('summary-val');      
       text = ticket + ' - ' + summary.innerText + '\n' + url;
     } else if (location.href.includes(m.get('Concierge Ticket'))) {
       var url = location.href;
       var ticket = document.getElementById('ticket-number').innerText;
-      var topic = document.getElementById('ticket-subject').innerText;
-      
+      var topic = document.getElementById('ticket-subject').innerText;      
       text = ticket + ' - ' + topic + '\n' + url;
     } else if (location.href.includes(m.get('Concierge Article'))) {
       var url = location.href;
-      var subject = document.getElementById('content-title').innerText;
-      
+      var subject = document.getElementById('content-title').innerText;      
       text = subject + '\n' + url;
     } else if (location.origin.includes(m.get('Slack'))) {
       var url = location.href;
-      var channel = document.getElementsByClassName('p-view_header__channel_title p-view_header__truncated_text')[0];
-      
-      text = '#' + channel.innerText + '\n' + url;
+      var channel = document.getElementsByClassName('p-view_header__channel_title p-view_header__truncated_text')[0].innerText;
+      text = '#' + channel + '\n' + url;
     } else if (location.href.includes(m.get('LinkedIn'))) {
       var url = location.href;
-      var fullName = document.getElementsByClassName('text-heading-xlarge inline t-24 v-align-middle break-words')[0];
-      var headline = document.getElementsByClassName('text-body-medium break-words')[0];
-      var where = document.getElementsByClassName('text-body-small inline t-black--light break-words')[0];
-      
-      text = fullName.innerText + ' - ' + headline.innerText + ' - ' + where.innerText + '\n' + url;
+      var fullName = document.getElementsByClassName('text-heading-xlarge inline t-24 v-align-middle break-words')[0].innerText;
+      var headline = document.getElementsByClassName('text-body-medium break-words')[0].innerText;
+      var where = document.getElementsByClassName('text-body-small inline t-black--light break-words')[0].innerText;
+      text = fullName + ' - ' + headline + ' - ' + where + '\n' + url;
     } else if (location.origin.includes(m.get('YouTube'))) {
       var url = location.href;
-      var title = document.getElementsByClassName('title style-scope ytd-video-primary-info-renderer')[0];
-  
-      text = title.innerText + '\n' + url;
+      var title = document.getElementsByClassName('title style-scope ytd-video-primary-info-renderer')[0].innerText;
+      text = title + '\n' + url;
     } else if (location.origin.includes(m.get('Google Calendar'))) {
-      var subject = document.getElementById('rAECCd');
-      var dateTime = document.getElementsByClassName('DN1TJ fX8Pqc CyPPBf')[0];
+      var subject = document.getElementById('rAECCd').innerText;
+      var dateTime = document.getElementsByClassName('DN1TJ fX8Pqc CyPPBf')[0].innerText;
+      var timezone = document.getElementById('xTimezone').innerText;
       var tmp = document.getElementsByClassName('w1OTme');
       if (tmp.length === 0) {
         tmp = document.getElementsByClassName('AP8Kec');
       }
       var link = tmp[0];
-  
-      text = subject.innerText + '\n' + dateTime.innerText + '\n' + link;
+      text = subject + '\n' + dateTime + ' (' + timezone + ')' + '\n' + link;
     } else if (location.origin.includes(m.get('Gmail'))) {
-      var subject = document.getElementsByClassName('hP')[0];
-      var from = document.getElementsByClassName('qu')[0];
-      var dateTime = document.getElementsByClassName('g3')[0];
-  
-      text = subject.innerText + '\n' + from.innerText + '\n' + dateTime.innerText;
+      var subject = document.getElementsByClassName('hP')[0].innerText;
+      var from = document.getElementsByClassName('qu')[0].innerText;
+      var dateTime = document.getElementsByClassName('g3')[0].innerText;
+      text = subject + '\n' + from + '\n' + dateTime;
     } else if (location.origin.includes(m.get('OrgChart'))) {
-      var folk = document.getElementById('details');
-  
-      text = folk.innerText;
+      var folk = document.getElementById('details').innerText;
+      text = folk;
     } else if (location.href.includes(m.get('Lucidchart'))) {
       var url = location.origin + location.pathname;
-      var title = document.getElementById('document_title');
-  
-      text = title.innerText + '\n' + url;
+      var title = document.getElementById('document_title').innerText;
+      text = title + '\n' + url;
     }
   
     var textArea = document.createElement('textArea');
