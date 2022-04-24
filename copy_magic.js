@@ -171,12 +171,13 @@ try {
       var subject = document.getElementById('rAECCd').innerText;
       var dateTime = document.getElementsByClassName('DN1TJ fX8Pqc CyPPBf')[0].innerText;
       var timezone = document.getElementById('xTimezone').innerText;
+      var organizer = document.getElementById('xDetDlgCal').getElementsByClassName('ynRLnc')[0].innerText;
       var tmp = document.getElementsByClassName('w1OTme');
       if (tmp.length === 0) {
         tmp = document.getElementsByClassName('AP8Kec');
       }
       var link = tmp[0];
-      text = subject + '\n' + dateTime + ' (' + timezone + ')' + '\n' + link;
+      text = subject + '\n' + dateTime + ' (' + timezone + ')' + '\n' + organizer + '\n' + link;
     } else if (location.origin.includes(m.get('Gmail'))) {
       var subject = document.getElementsByClassName('hP')[0].innerText;
       var from = document.getElementsByClassName('qu')[0].innerText;
