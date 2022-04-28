@@ -94,8 +94,30 @@ try {
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
       var work = wrapper.querySelector('[slot="primaryField"]').innerText;
       var workID = wrapper.querySelector('[title="Work ID"]').nextElementSibling.innerText;
+      var status = wrapper.querySelector('[title="Status"]').nextElementSibling.innerText;
       var recordType = wrapper.querySelector('[title="Record Type"]').nextElementSibling.innerText;
-      text = workID + ' - ' + recordType + ' - ' + work + '\n' + url;
+
+      var a = wrapper.innerText.split('\n');
+      var priority = '';
+  
+      for (var i = 0; i < a.length; ++i) {
+        if (a[i] === 'Last Modified By') {
+          break;
+        }
+
+        switch(a[i]) {
+          case 'Help Priority':
+            priority = a[i+1];
+            break;
+          default:
+        }
+      }
+
+      if (priority === '') {
+        text = workID + ' - ' + status + ' - ' + recordType + ' - ' + work + '\n' + url;
+      } else {
+        text = workID + ' - ' + priority + ' - ' + status + ' - ' + recordType + ' - ' + work + '\n' + url;
+      }
     } else if (location.href.includes(m.get('GUS ADM Epic'))) {
       var url = location.href;
       var wrapper = document.getElementsByClassName('oneRecordHomeFlexipage2Wrapper')[0];
